@@ -15,18 +15,16 @@ class CreateHighlightsTable extends Migration
     {
         Schema::create('highlights', function (Blueprint $table) {
             $table->id();
-            $table->integer("duration");
-            $table->dateTime("expire");
+            $table->dateTime("start");
+            $table->dateTime("end");
+            $table->integer('type');
+            $table->float("price", 4, 2);
 
-            $table->unsignedBigInteger('suite_id');
-            $table->foreign('suite_id')
-                ->references('id')
-                ->on('suites');
-                
             $table->unsignedBigInteger('payment_id');
             $table->foreign('payment_id')
                 ->references('id')
                 ->on('payments');
+
             $table->timestamps();
         });
     }

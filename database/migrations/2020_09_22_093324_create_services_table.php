@@ -15,16 +15,7 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->boolean("wifi");
-            $table->boolean("pianoforte");
-            $table->boolean("pool");
-            $table->boolean("sauna");
-            $table->boolean("pet");
-            $table->boolean("parking");
-            $table->unsignedBigInteger("suite_id");
-            $table->foreign("suite_id")
-                ->references("id")
-                ->on("suites");
+            $table->string('list');
             $table->timestamps();
         });
     }
@@ -36,6 +27,8 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+      DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+      Schema::dropIfExists('services');
+      DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

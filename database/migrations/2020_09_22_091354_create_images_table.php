@@ -16,10 +16,12 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->text("path");
+
             $table->unsignedBigInteger("suite_id");
             $table->foreign("suite_id")
                 ->references("id")
                 ->on("suites");
+                
             $table->timestamps();
         });
     }

@@ -7,16 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     protected $fillable = [
-      "pool",
-      "wifi",
-      "parking",
-      "pet",
-      "sauna",
-      "pianoforte",
-      "suite_id",
+      "list",
     ];
 
-    public function suite() {
-      return $this->belongsTo("App\Suite");
+    public function suites() {
+      return $this->belongsToMany("App\Suite");
     }
 }

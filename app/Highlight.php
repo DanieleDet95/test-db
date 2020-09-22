@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Highlight extends Model
 {
     protected $fillable = [
-      "duration",
-      "expire",
-      "suite_id",
+      "start",
+      "end",
+      "type",
+      "price",
       "payment_id",
     ];
 
     public function suite() {
-      return $this->belongsTo("App\Suite");
+      return $this->belongsToMany("App\Suite");
     }
 
     public function payment() {

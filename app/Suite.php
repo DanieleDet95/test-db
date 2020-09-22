@@ -8,7 +8,17 @@ class Suite extends Model
 {
     protected $fillable = [
       'user_id',
-      'title'
+      'title',
+      'address',
+      'rooms',
+      'beds',
+      'baths',
+      'square_m',
+      'latitude',
+      'longitude',
+      'price',
+      'description',
+      'main_image',
     ];
 
     public function user() {
@@ -16,18 +26,15 @@ class Suite extends Model
     }
 
     public function highlight() {
-      return $this->hasOne('App\Highlight');
+      return $this->belongsToMany('App\Highlight');
     }
 
     public function images() {
       return $this->hasMany('App\Image');
     }
 
-    public function service() {
-      return $this->hasOne("App\Service");
+    public function services() {
+      return $this->belongsToMany("App\Service");
     }
 
-    public function suiteInfo() {
-      return $this->hasOne('App\SuiteInfo');
-    }
 }
