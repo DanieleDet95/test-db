@@ -18,4 +18,8 @@ class Suite extends Model
     public function highlight() {
       return $this->hasOne('App\Highlight');
     }
+
+    public function images() {
+      return $this->hasMany('App\Image');
+    }
 }
