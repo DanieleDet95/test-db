@@ -26,4 +26,8 @@ class Suite extends Model
     public function service() {
       return $this->hasOne("App\Service");
     }
+
+    public function suiteInfo() {
+      return $this->hasOne('App\SuiteInfo');
+    }
 }
