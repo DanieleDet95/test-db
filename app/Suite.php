@@ -22,4 +22,8 @@ class Suite extends Model
     public function images() {
       return $this->hasMany('App\Image');
     }
+
+    public function service() {
+      return $this->hasOne("App\Service");
+    }
 }
