@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
                 UserInfosTableSeeder::class,
                 SuitesTableSeeder::class,
                 PaymentsTableSeeder::class,
+                HighlightsTableSeeder::class,
           ]);
     }
 }
